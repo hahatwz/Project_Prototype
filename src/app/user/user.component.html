@@ -1,0 +1,77 @@
+<mat-toolbar color="primary">
+<mat-toolbar-row>
+    <span>Agriculture App</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <mat-card>
+        <div class="userprofile-container">
+          <h2>UserProfile</h2>
+            <mat-list>
+              <mat-list-item>Name: {{ userInfo.name }}</mat-list-item>
+              <mat-list-item>Area: {{ userInfo.area }}</mat-list-item>
+              <mat-list-item>Latitude: {{ userInfo.latitude }}</mat-list-item>
+              <mat-list-item>Longtitude: {{ userInfo.longtitude }}</mat-list-item>
+              <mat-list-item>PH Value: {{ userInfo.phvalue }}</mat-list-item>
+            </mat-list>
+        </div>
+            
+            <!-- <form class="form-inline" (ngSubmit)="updateUserInfo()" #updateForm="ngForm">
+              <label for="inputName" class="sr-only">Name</label>
+              <input type="name" class="form-control" placeholder="Name" [(ngModel)]="userInfo.name" name="name" required/>
+              <label for="inputArea" class="sr-only">Area</label>
+              <input type="area" class="form-control" placeholder="Area" [(ngModel)]="userInfo.area" name="area" required/>
+              <label for="inputLongtitude" class="sr-only">Longtitude</label>
+              <input type="longtitude" class="form-control" placeholder="Longtitude" [(ngModel)]="userInfo.longtitude" name="longtitude" required/>
+              <label for="inputLatitude" class="sr-only">Latitude</label>
+              <input type="latitude" class="form-control" placeholder="Latitude" [(ngModel)]="userInfo.latitude" name="latitude" required/>
+              <label for="inputPHvalue" class="sr-only">PH value</label>
+              <input type="phvalue" class="form-control" placeholder="PHvalue" [(ngModel)]="userInfo.phvalue" name="phvalue" required/>
+              <button class="btn btn-lg btn-primary" type="submit" [disabled]="!updateForm.form.valid">Update</button>
+            </form> -->
+            
+            <div class="updateup-container">
+                <h2>Update UserProfile</h2>
+                    <mat-form-field>
+                    <input type="name" class="form-control" matInput placeholder="Name" [(ngModel)]="userInfo.name" name="name" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                    <input type="area" class="form-control" matInput placeholder="Area" [(ngModel)]="userInfo.area" name="area" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                    <input type="latitude" class="form-control" matInput placeholder="Latitude" [(ngModel)]="userInfo.latitude" name="latitude" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                    <input type="longtitude" class="form-control" matInput placeholder="Longtitude" [(ngModel)]="userInfo.longtitude" name="longtidue" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                    <input type="phvalue" class="form-control" matInput placeholder="PH Value" [(ngModel)]="userInfo.phvalue" name="phvalue" required/>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" (click)="updateUserInfo()">Update UserProfile</button>
+            </div>
+       </mat-card>
+        </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card>
+                <!-- <mat-progress-spinner [diameter] = "400" mode="determinate" value={{tempQuote}}></mat-progress-spinner>  -->
+                <canvas id="canvas"></canvas>
+                <h1 align="center">{{tempQuote}}℃</h1>
+                <h1 align="center">{{fahtempQuote}}°F</h1>
+            </mat-card>
+        </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+        <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map> 
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+        <weather-widget [settings]="settings"></weather-widget>
+        </mat-card>
+      </mat-grid-tile>
+</mat-grid-list>
