@@ -1,4 +1,4 @@
-# Securing MEAN Stack (Angular 5) Web Application using Passport
+# Automated Agriculture System Web Application using Passport
 
 To run locally:
 
